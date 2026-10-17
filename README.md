@@ -1,3 +1,7 @@
+I create this portafolio with help and guide from a platzi course.
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Testing
