@@ -61,17 +61,17 @@ export default function About() {
                 <span className="text-gray-500 dark:text-gray-400">Imagen de perfil</span>
               </div>
               <div>
-                <h2 className="text-3xl font-bold mb-4 text-center">About me</h2>
+                <h2 className="text-3xl font-bold mb-4 text-center">Santiago G. C.</h2>
                 <p className="mb-4 text-gray-600 dark:text-gray-400">
-                  Soy un desarrollador apasionado por crear experiencias web modernas y eficientes.
-                  Me especializo en tecnologías como Next.js, React y TypeScript.
+                  My programming journey started when I was around 9 and a half years old, when my dad introduced me to Python. I began by creating games using Python's Tkinter and Turtle libraries. Through these projects, I learned the fundamentals of programming and started developing my problem-solving skills.
+
+                  As I became more interested in development, I started taking courses on Platzi, where I learned HTML, CSS, and JavaScript. I began exploring web development and game design, and later started learning Node.js to understand how backend development works.
                 </p>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">
-                  Mi objetivo es compartir conocimiento y ayudar a otros desarrolladores a mejorar
-                  sus habilidades a través de tutoriales y artículos prácticos.
-                </p>
+
                 <p className="mb-6 text-gray-600 dark:text-gray-400">
-                  Me encanta aprender nuevas tecnologías y contribuir a la comunidad de desarrollo.
+                  Over time, I've worked on different games and websites, putting what I've learned into practice and experimenting with new ideas. I enjoy the entire development process, from writing code and testing features to debugging problems and improving my projects.
+
+                  Through this portfolio, I want to showcase my projects, share my progress, and continue growing as a developer.
                 </p>
                 <Link
                   href="/contact"

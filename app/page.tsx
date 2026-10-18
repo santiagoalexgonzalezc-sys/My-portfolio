@@ -31,15 +31,12 @@ export default async function Home() {
               <span className="text-gray-500 dark:text-gray-400">Imagen placeholder</span>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-center">About me</h2>
+              <h2 className="text-3xl font-bold mb-4 text-center">Santiago G. C.</h2>
               <p className="mb-4 text-gray-600 dark:text-gray-400">
-                Soy un desarrollador apasionado por crear experiencias web modernas y eficientes.
-                Me especializo en tecnologías como Next.js, React y TypeScript.
+                Hi, my name is Santiago. I'm passionate about programming, especially game development, because I love creating interactive experiences and shaping them with my own ideas.
+ 
               </p>
-              <p className="mb-6 text-gray-600 dark:text-gray-400">
-                Mi objetivo es compartir conocimiento y ayudar a otros desarrolladores a mejorar
-                sus habilidades a través de tutoriales y artículos prácticos.
-              </p>
+
               <Link
                 href="/about"
                 className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
