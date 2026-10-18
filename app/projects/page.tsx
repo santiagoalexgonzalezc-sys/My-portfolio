@@ -8,8 +8,8 @@ interface Project {
 const mockProjects: Project[] = [
   {
     id: 1,
-    title: 'Proyecto E-commerce',
-    description: 'Plataforma de comercio electrónico con Next.js y Stripe.',
+    title: '7aCoMusic',
+    description: 'This is one my first web developments with html-css-js. It talks about the music of Colombia. I did it in grade 8, for a music project. My teacher wasnt expecting a website, she was very surprised and she gave me a 100% note',
     featured: true,
   },
   {
