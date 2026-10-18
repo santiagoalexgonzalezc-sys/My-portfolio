@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { projects } from './projects/data';
 
 interface Post {
   id: number;
@@ -6,35 +7,6 @@ interface Post {
   summary: string;
   featured?: boolean;
 }
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: '7aCoMusic',
-    description: 'My first web development. For a school project. This website talks about the beautiful music of Colombia.',
-  },
-  {
-    id: 2,
-    title: 'Dashboard Analytics',
-    description: 'Panel de control con visualización de datos en tiempo real.',
-  },
-  {
-    id: 3,
-    title: 'App de Tareas',
-    description: 'Aplicación de gestión de tareas con React y TypeScript.',
-  },
-  {
-    id: 4,
-    title: 'Portfolio Personal',
-    description: 'Sitio web personal con diseño moderno y responsivo.',
-  },
-];
 
 async function getPosts(): Promise<Post[]> {
   const res = await fetch('http://localhost:3001/posts');
@@ -55,30 +27,32 @@ export default async function Home() {
       <main className="flex-1">
         {/* About Section */}
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500 dark:text-gray-400">Imagen placeholder</span>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-4 text-center">Santiago G. C.</h2>
-              <p className="mb-4 text-gray-600 dark:text-gray-400">
-                Hi, my name is Santiago. I'm passionate about programming, especially game development, because I love creating interactive experiences and shaping them with my own ideas.
+          <div className="bg-[#687B55] text-white p-8 rounded-lg">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400">Imagen placeholder</span>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold mb-4 text-center">Santiago G. C.</h2>
+                <p className="mb-4">
+                  Hi, my name is Santiago. I'm passionate about programming, especially game development, because I love creating interactive experiences and shaping them with my own ideas.
  
-              </p>
+                </p>
 
-              <div className="mt-6 flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/blog"
-                  className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  View blog
-                </Link>
-                <Link
-                  href="/projects"
-                  className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  View projects
-                </Link>
+                <div className="mt-6 flex flex-wrap justify-center gap-4">
+                  <Link
+                    href="/blog"
+                    className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    View blog
+                  </Link>
+                  <Link
+                    href="/projects"
+                    className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    View projects
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -133,11 +107,21 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <div key={project.id} className="bg-[#687B55] text-white p-6 rounded-lg">
-                <div className="w-full aspect-video bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
+                <Link
+                  href={`/projects/${project.id}`}
+                  aria-label={`View ${project.title} project details`}
+                  className="w-full aspect-video bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center"
+                >
                   <span className="text-gray-500 dark:text-gray-400">Project preview</span>
-                </div>
+                </Link>
                 <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>
                 <p>{project.description}</p>
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="mt-4 block text-center font-semibold hover:underline"
+                >
+                  Read more
+                </Link>
               </div>
             ))}
           </div>

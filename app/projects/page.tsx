@@ -1,37 +1,9 @@
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  featured?: boolean;
-}
-
-const mockProjects: Project[] = [
-  {
-    id: 1,
-    title: '7aCoMusic',
-    description: 'This is one my first web developments with html-css-js. It talks about the music of Colombia. I did it in grade 8, for a music project. My teacher wasnt expecting a website, she was very surprised and she gave me a 100% note',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'Dashboard Analytics',
-    description: 'Panel de control con visualización de datos en tiempo real.',
-  },
-  {
-    id: 3,
-    title: 'App de Tareas',
-    description: 'Aplicación de gestión de tareas con React y TypeScript.',
-  },
-  {
-    id: 4,
-    title: 'Portfolio Personal',
-    description: 'Sitio web personal con diseño moderno y responsivo.',
-  }
-];
+import Link from 'next/link';
+import { projects } from './data';
 
 export default function Projects() {
-  const featuredProject = mockProjects.find((project) => project.featured);
-  const otherProjects = mockProjects.filter((project) => !project.featured);
+  const featuredProject = projects.find((project) => project.featured);
+  const otherProjects = projects.filter((project) => !project.featured);
   
   return (
     <div className="flex flex-col">
@@ -40,13 +12,25 @@ export default function Projects() {
         {/* Featured Project */}
         {featuredProject && (
           <section className="max-w-6xl mx-auto px-4 py-16">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400">Project preview</span>
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold mb-4 text-center">{featuredProject.title}</h1>
-                <p className="text-gray-600 dark:text-gray-400">{featuredProject.description}</p>
+            <div className="bg-[#687B55] text-white p-8 rounded-lg">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <Link
+                  href={`/projects/${featuredProject.id}`}
+                  aria-label={`View ${featuredProject.title} project details`}
+                  className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center"
+                >
+                  <span className="text-gray-500 dark:text-gray-400">Project preview</span>
+                </Link>
+                <div>
+                  <h1 className="text-3xl font-bold mb-4 text-center">{featuredProject.title}</h1>
+                  <p>{featuredProject.description}</p>
+                  <Link
+                    href={`/projects/${featuredProject.id}`}
+                    className="mt-4 block text-center font-semibold hover:underline"
+                  >
+                    Read more
+                  </Link>
+                </div>
               </div>
             </div>
           </section>
@@ -58,11 +42,21 @@ export default function Projects() {
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
               <div key={project.id} className="bg-[#687B55] text-white p-6 rounded-lg">
-                <div className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
+                <Link
+                  href={`/projects/${project.id}`}
+                  aria-label={`View ${project.title} project details`}
+                  className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center"
+                >
                   <span className="text-gray-500 dark:text-gray-400">Project preview</span>
-                </div>
+                </Link>
                 <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>
                 <p>{project.description}</p>
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="mt-4 block text-center font-semibold hover:underline"
+                >
+                  Read more
+                </Link>
               </div>
             ))}
           </div>

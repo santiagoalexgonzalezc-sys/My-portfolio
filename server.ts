@@ -8,6 +8,15 @@ interface Post {
   date?: string;
 }
 
+interface Project {
+  id: number;
+  title: string;
+  summary: string;
+  featured?: boolean;
+  content: string;
+  technologies: string[];
+}
+
 const mockPosts: Post[] = [
   {
     id: 1,
@@ -68,12 +77,49 @@ const mockPosts: Post[] = [
   }
 ];
 
+const mockProjects: Project[] = [
+  {
+    id: 1,
+    title: '7aCoMusic',
+    summary: 'An interactive website introducing visitors to the music and culture of Colombia.',
+    featured: true,
+    content: 'One of my first web development projects, created in Grade 8 for a music assignment about Colombian music. Built with HTML, CSS, and JavaScript, 7aCoMusic was my way of turning a school assignment into an interactive website.My teacher was surprised by my approach and impressed with the result, awarding me a 100% grade. ',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    id: 2,
+    title: 'Dashboard Analytics',
+    summary: 'A sample analytics dashboard for tracking activity and reviewing key metrics.',
+    content: 'This dashboard concept organizes important business metrics into a clear overview. It includes summary cards, charts for comparing activity over time, and a responsive layout that keeps the information easy to scan on smaller screens.',
+    technologies: ['React', 'TypeScript', 'Chart.js'],
+  },
+  {
+    id: 3,
+    title: 'App de Tareas',
+    summary: 'A task manager concept for organizing daily work into manageable steps.',
+    content: 'The task manager lets users capture tasks, mark work as complete, and keep track of what still needs attention. Its simple interface is designed to make everyday planning straightforward, with separate views for active and completed tasks.',
+    technologies: ['React', 'TypeScript', 'CSS'],
+  },
+  {
+    id: 4,
+    title: 'Portfolio Personal',
+    summary: 'A responsive portfolio for presenting projects, writing, and contact information.',
+    content: 'This portfolio brings project highlights, blog posts, and personal information together in one place. The design uses reusable page sections and responsive layouts so visitors can explore the work on desktop and mobile devices.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS'],
+  },
+];
+
 const server = Bun.serve({
   port: 3001,
   routes: {
     "/posts": {
       GET: () => {
         return Response.json(mockPosts);
+      },
+    },
+    "/projects": {
+      GET: () => {
+        return Response.json(mockProjects);
       },
     },
   },

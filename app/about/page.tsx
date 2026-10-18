@@ -17,7 +17,7 @@ export default function About() {
               <div>
                 <h2 className="text-3xl font-bold mb-4 text-center">Santiago G. C.</h2>
                 <p className="mb-4">
-                  My programming journey started when I was around 9 and a half years old, when my dad introduced me to Python. I began by creating games using Python's Tkinter and Turtle libraries. Through these projects, I learned the fundamentals of programming and started developing my problem-solving skills.
+                  My programming journey started when I was around 10 years old, when my dad introduced me to Python. I began by creating games using Python's Tkinter and Turtle libraries. Through these projects, I learned the fundamentals of programming and started developing my problem-solving skills.
 
                   As I became more interested in development, I started taking courses on Platzi, where I learned HTML, CSS, and JavaScript. I began exploring web development and game design, and later started learning Node.js to understand how backend development works.
                 </p>
