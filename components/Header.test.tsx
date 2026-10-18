@@ -4,7 +4,7 @@ import Header from './Header'
 describe('Header', () => {
   it('renders the logo with correct text', () => {
     render(<Header />)
-    const logo = screen.getByText('Dev Portafolio')
+    const logo = screen.getByText("Santiago's Portafolio")
     expect(logo).toBeInTheDocument()
   })
 
@@ -45,6 +45,6 @@ describe('Header', () => {
     
     // Verifica que los links sean accesibles
     const links = screen.getAllByRole('link')
-    expect(links).toHaveLength(4) // Logo + 3 navigation links
+    expect(links).toHaveLength(6) // Logo + 5 navigation links
   })
 })

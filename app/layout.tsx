@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dev Portafolio",
+  title: "Santiago's Portafolio",
   description: "Portafolio de desarrollo web con Next.js, React y TypeScript",
 };
 
