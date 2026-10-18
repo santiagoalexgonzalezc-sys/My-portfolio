@@ -60,16 +60,16 @@ export default function Blog() {
           <section className="max-w-6xl mx-auto px-4 py-16">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400">Imagen destacada</span>
+                <span className="text-gray-500 dark:text-gray-400">Featured image</span>
               </div>
               <div>
                 <h1 className="text-3xl font-bold mb-4 text-center">{featuredPost.title}</h1>
-                <p className="mb-6 text-gray-600 dark:text-gray-400">{featuredPost.summary}</p>
+                <p className="mb-6 text-center text-gray-600 dark:text-gray-400">{featuredPost.summary}</p>
                 <Link
                   href={`/blog/${featuredPost.id}`}
                   className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors border-2 border-black text-lg font-semibold text-center w-full"
                 >
-                  Leer más
+                  Read more
                 </Link>
               </div>
             </div>
@@ -78,20 +78,20 @@ export default function Blog() {
 
         {/* Posts Grid */}
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Últimos posts</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Latest posts</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {regularPosts.map((post) => (
               <div key={post.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
                 <div className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
-                  <span className="text-gray-500 dark:text-gray-400">Miniatura</span>
+                  <span className="text-gray-500 dark:text-gray-400">Thumbnail</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">{post.title}</h3>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">{post.summary}</p>
+                <p className="mb-4 text-center text-gray-600 dark:text-gray-400">{post.summary}</p>
                 <Link
                   href={`/blog/${post.id}`}
                   className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full"
                 >
-                  Leer
+                  Read
                 </Link>
               </div>
             ))}

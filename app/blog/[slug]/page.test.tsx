@@ -1,21 +1,31 @@
 import { render, screen } from '@testing-library/react'
 import BlogPost from './page'
 
-// Mock de next/navigation para params
-jest.mock('next/navigation', () => ({
-  useParams: jest.fn(),
-}))
-
 describe('BlogPost', () => {
   beforeEach(() => {
-    // Reset mocks antes de cada test
     jest.clearAllMocks()
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [
+        {
+          id: 1,
+          title: 'Cómo optimizar tu aplicación Next.js',
+          summary: 'Summary',
+          content: 'Este es el contenido completo del post',
+          author: 'Juan Pérez',
+          date: '15 de Mayo, 2024',
+          featured: true,
+        },
+        {
+          id: 2,
+          title: 'Introducción a TypeScript',
+          summary: 'Related post summary',
+        },
+      ],
+    })
   })
 
   it('renders post title when post exists', async () => {
-    const { useParams } = require('next/navigation')
-    useParams.mockReturnValue({ slug: '1' })
-
     const Component = await BlogPost({ params: Promise.resolve({ slug: '1' }) })
     render(Component)
 
@@ -27,7 +37,7 @@ describe('BlogPost', () => {
     const Component = await BlogPost({ params: Promise.resolve({ slug: '1' }) })
     render(Component)
 
-    const author = screen.getByText(/Por Juan Pérez/)
+    const author = screen.getByText(/By Juan Pérez/)
     const date = screen.getByText(/15 de Mayo, 2024/)
     
     expect(author).toBeInTheDocument()
@@ -42,11 +52,11 @@ describe('BlogPost', () => {
     expect(content).toBeInTheDocument()
   })
 
-  it('shows "Post no encontrado" when post does not exist', async () => {
+  it('shows "Post not found" when post does not exist', async () => {
     const Component = await BlogPost({ params: Promise.resolve({ slug: '999' }) })
     render(Component)
 
-    const notFound = screen.getByText('Post no encontrado')
+    const notFound = screen.getByText('Post not found')
     expect(notFound).toBeInTheDocument()
   })
 
@@ -54,7 +64,7 @@ describe('BlogPost', () => {
     const Component = await BlogPost({ params: Promise.resolve({ slug: '1' }) })
     render(Component)
 
-    const relatedPostsTitle = screen.getByText('Posts relacionados')
+    const relatedPostsTitle = screen.getByText('Related posts')
     expect(relatedPostsTitle).toBeInTheDocument()
   })
 
@@ -62,7 +72,7 @@ describe('BlogPost', () => {
     const Component = await BlogPost({ params: Promise.resolve({ slug: '1' }) })
     render(Component)
 
-    const relatedLinks = screen.getAllByText('Leer')
+    const relatedLinks = screen.getAllByText('Read')
     expect(relatedLinks.length).toBeGreaterThan(0)
     
     // Verificar que al menos un link tenga el href correcto
@@ -74,7 +84,7 @@ describe('BlogPost', () => {
     const Component = await BlogPost({ params: Promise.resolve({ slug: '1' }) })
     render(Component)
 
-    const heroPlaceholder = screen.getByText('Imagen hero del post')
+    const heroPlaceholder = screen.getByText('Post hero image')
     expect(heroPlaceholder).toBeInTheDocument()
   })
 })

@@ -24,7 +24,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const currentPost = posts.find((post) => post.id.toString() === slug);
 
   if (!currentPost) {
-    return <p>Post no encontrado</p>;
+    return <p>Post not found</p>;
   }
 
   const relatedPosts = posts.filter((post) => post.id.toString() !== slug).slice(0, 4);
@@ -36,15 +36,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Hero Section */}
         <section className="w-full flex justify-center py-12">
           <div className="w-[70%] aspect-16/10 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500 dark:text-gray-400">Imagen hero del post</span>
+            <span className="text-gray-500 dark:text-gray-400">Post hero image</span>
           </div>
         </section>
 
         {/* Post Content */}
         <section className="max-w-4xl mx-auto px-4 py-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{currentPost.title}</h1>
-          <div className="flex gap-4 mb-8 text-gray-600 dark:text-gray-400">
-            <span>Por {currentPost.author}</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">{currentPost.title}</h1>
+          <div className="flex justify-center gap-4 mb-8 text-gray-600 dark:text-gray-400">
+            <span>By {currentPost.author}</span>
             <span>•</span>
             <span>{currentPost.date}</span>
           </div>
@@ -63,20 +63,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         {/* Related Posts Grid */}
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8">Posts relacionados</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Related posts</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {relatedPosts.map((post) => (
               <div key={post.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
                 <div className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
-                  <span className="text-gray-500 dark:text-gray-400">Miniatura</span>
+                  <span className="text-gray-500 dark:text-gray-400">Thumbnail</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">{post.summary}</p>
+                <h3 className="text-xl font-bold mb-2 text-center">{post.title}</h3>
+                <p className="mb-4 text-center text-gray-600 dark:text-gray-400">{post.summary}</p>
                 <Link
                   href={`/blog/${post.id}`}
-                  className="text-gray-900 dark:text-gray-100 hover:underline"
+                  className="block w-full text-center text-gray-900 dark:text-gray-100 hover:underline"
                 >
-                  Leer
+                  Read
                 </Link>
               </div>
             ))}

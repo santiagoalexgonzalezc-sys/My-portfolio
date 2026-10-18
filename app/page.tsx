@@ -7,6 +7,35 @@ interface Post {
   featured?: boolean;
 }
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Proyecto E-commerce',
+    description: 'Plataforma de comercio electrónico con Next.js y Stripe.',
+  },
+  {
+    id: 2,
+    title: 'Dashboard Analytics',
+    description: 'Panel de control con visualización de datos en tiempo real.',
+  },
+  {
+    id: 3,
+    title: 'App de Tareas',
+    description: 'Aplicación de gestión de tareas con React y TypeScript.',
+  },
+  {
+    id: 4,
+    title: 'Portfolio Personal',
+    description: 'Sitio web personal con diseño moderno y responsivo.',
+  },
+];
+
 async function getPosts(): Promise<Post[]> {
   const res = await fetch('http://localhost:3001/posts');
   if (!res.ok) {
@@ -37,12 +66,20 @@ export default async function Home() {
  
               </p>
 
-              <Link
-                href="/blog"
-                className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-              >
-                Ver blog
-              </Link>
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <Link
+                  href="/blog"
+                  className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                >
+                  View blog
+                </Link>
+                <Link
+                  href="/projects"
+                  className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                >
+                  View projects
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -55,9 +92,9 @@ export default async function Home() {
             {featuredPost && (
               <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
                 <h3 className="text-2xl font-bold mb-3 text-center">{featuredPost.title}</h3>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">{featuredPost.summary}</p>
+                <p className="mb-4 text-center text-gray-600 dark:text-gray-400">{featuredPost.summary}</p>
                 <button className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full">
-                  Leer más
+                  Read more
                 </button>
               </div>
             )}
@@ -71,14 +108,46 @@ export default async function Home() {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold mb-1 text-center">{post.title}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{post.summary}</p>
+                    <p className="text-sm text-center text-gray-600 dark:text-gray-400 mb-2">{post.summary}</p>
                     <button className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full">
-                      Leer
+                      Read
                     </button>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            >
+              View all posts
+            </Link>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="max-w-6xl mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <div key={project.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+                <div className="w-full aspect-video bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
+                  <span className="text-gray-500 dark:text-gray-400">Project preview</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400">{project.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/projects"
+              className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            >
+              View all projects
+            </Link>
           </div>
         </section>
       </main>
