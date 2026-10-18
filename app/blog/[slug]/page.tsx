@@ -53,10 +53,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {currentPost.content}
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do e312312321321iusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore ef121312312312312312312312312321312312312312312312312312312312123123123123123123123321321312giat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
         </section>

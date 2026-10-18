@@ -5,7 +5,7 @@ export default function Header() {
     <header className="border-b border-gray-200 dark:border-gray-800">
       <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold">
-          Dev Portafolio
+          Santiago's Portafolio
         </Link>
         <ul className="flex gap-6">
 
@@ -24,6 +24,12 @@ export default function Header() {
           <li>
             <Link href="/blog" className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
               Blog
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/projects" className="hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
+              Projects
             </Link>
           </li>
 

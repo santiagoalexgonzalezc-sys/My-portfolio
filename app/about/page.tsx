@@ -6,12 +6,6 @@ interface Project {
   description: string;
 }
 
-interface Talk {
-  id: number;
-  title: string;
-  summary: string;
-}
-
 const mockProjects: Project[] = [
   {
     id: 1,
@@ -32,19 +26,6 @@ const mockProjects: Project[] = [
     id: 4,
     title: 'Portfolio Personal',
     description: 'Sitio web personal con diseño moderno y responsivo',
-  },
-];
-
-const mockTalks: Talk[] = [
-  {
-    id: 1,
-    title: 'Introducción a Next.js 15',
-    summary: 'Descubre las nuevas características de Next.js 15 y cómo mejorar el rendimiento de tus aplicaciones.',
-  },
-  {
-    id: 2,
-    title: 'TypeScript para React Developers',
-    summary: 'Aprende a utilizar TypeScript en tus proyectos React para escribir código más seguro y mantenible.',
   },
 ];
 
@@ -100,28 +81,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Talks Section */}
-        <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Talks</h2>
-          <div className="space-y-6">
-            {mockTalks.map((talk) => (
-              <div key={talk.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="w-full md:w-48 h-32 bg-gray-200 dark:bg-gray-800 rounded shrink-0 flex items-center justify-center">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Miniatura</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2 text-center">{talk.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{talk.summary}</p>
-                    <button className="text-gray-900 dark:text-gray-100 hover:underline">
-                      Ver charla
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </main>
     </div>
   );
