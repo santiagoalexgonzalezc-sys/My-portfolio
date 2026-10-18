@@ -81,15 +81,15 @@ export default function Blog() {
           <h2 className="text-3xl font-bold mb-8 text-center">Latest posts</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {regularPosts.map((post) => (
-              <div key={post.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+              <div key={post.id} className="bg-[#687B55] text-white p-6 rounded-lg">
                 <div className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
                   <span className="text-gray-500 dark:text-gray-400">Thumbnail</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">{post.title}</h3>
-                <p className="mb-4 text-center text-gray-600 dark:text-gray-400">{post.summary}</p>
+                <p className="mb-4 text-center">{post.summary}</p>
                 <Link
                   href={`/blog/${post.id}`}
-                  className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full"
+                  className="hover:underline text-lg font-semibold text-center block w-full"
                 >
                   Read
                 </Link>

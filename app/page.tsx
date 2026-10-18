@@ -16,8 +16,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Proyecto E-commerce',
-    description: 'Plataforma de comercio electrónico con Next.js y Stripe.',
+    title: '7aCoMusic',
+    description: 'My first web development. For a school project. This website talks about the beautiful music of Colombia.',
   },
   {
     id: 2,
@@ -90,10 +90,10 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Featured Post */}
             {featuredPost && (
-              <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+              <div className="bg-[#687B55] text-white p-6 rounded-lg">
                 <h3 className="text-2xl font-bold mb-3 text-center">{featuredPost.title}</h3>
-                <p className="mb-4 text-center text-gray-600 dark:text-gray-400">{featuredPost.summary}</p>
-                <button className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full">
+                <p className="mb-4 text-center">{featuredPost.summary}</p>
+                <button className="hover:underline text-lg font-semibold text-center block w-full">
                   Read more
                 </button>
               </div>
@@ -102,14 +102,14 @@ export default async function Home() {
             {/* Regular Posts */}
             <div className="space-y-4">
               {regularPosts.map((post) => (
-                <div key={post.id} className="flex gap-4 bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                <div key={post.id} className="flex gap-4 bg-[#687B55] text-white p-4 rounded-lg">
                   <div className="w-20 h-20 bg-gray-200 dark:bg-gray-800 rounded shrink-0 flex items-center justify-center">
                     <span className="text-xs text-gray-500 dark:text-gray-400">Img</span>
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold mb-1 text-center">{post.title}</h4>
-                    <p className="text-sm text-center text-gray-600 dark:text-gray-400 mb-2">{post.summary}</p>
-                    <button className="text-gray-900 dark:text-gray-100 hover:underline text-lg font-semibold text-center block w-full">
+                    <p className="text-sm text-center mb-2">{post.summary}</p>
+                    <button className="hover:underline text-lg font-semibold text-center block w-full">
                       Read
                     </button>
                   </div>
@@ -132,12 +132,12 @@ export default async function Home() {
           <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project) => (
-              <div key={project.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+              <div key={project.id} className="bg-[#687B55] text-white p-6 rounded-lg">
                 <div className="w-full aspect-video bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
                   <span className="text-gray-500 dark:text-gray-400">Project preview</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{project.description}</p>
+                <p>{project.description}</p>
               </div>
             ))}
           </div>

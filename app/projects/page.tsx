@@ -57,12 +57,12 @@ export default function Projects() {
           <h2 className="text-3xl font-bold mb-8 text-center">Other Projects</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
-              <div key={project.id} className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+              <div key={project.id} className="bg-[#687B55] text-white p-6 rounded-lg">
                 <div className="w-full aspect-square bg-gray-200 dark:bg-gray-800 rounded mb-4 flex items-center justify-center">
                   <span className="text-gray-500 dark:text-gray-400">Project preview</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{project.description}</p>
+                <p>{project.description}</p>
               </div>
             ))}
           </div>
