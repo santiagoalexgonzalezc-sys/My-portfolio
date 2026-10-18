@@ -1,4 +1,7 @@
-I create this portafolio with help and guide from a platzi course.
+
+
+
+This is my personal developer portfolio, built with Next.js, React, and TypeScript. It brings together information about me, the projects I have created, and blog posts where I share what I am learning. I developed it while following and learning from a Platzi course, and continue to use it to practice and showcase my work.
 
 
 
