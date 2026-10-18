@@ -38,10 +38,10 @@ export default async function Home() {
               </p>
 
               <Link
-                href="/about"
+                href="/blog"
                 className="inline-block px-6 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
-                Ver más
+                Ver blog
               </Link>
             </div>
           </div>
